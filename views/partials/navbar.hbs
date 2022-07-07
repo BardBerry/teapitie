@@ -2,12 +2,11 @@
   <a id="logo" href="/">
     <img id="logoImg" src="/img/logo.png" alt="teaList logo">
   </a>
-  {{#if admin}}
-  <ul class="navInside">
-    <li class="navLi">Список чая</li>
-    <li class="navLi">Комментарии</li>
-  </ul>
-  {{/if}}
+ 
+  <div class="navInside">
+    <span class="">Личный кабинет</span>
+  </div>
+
   <ul class="navPart">
     {{#if userName}}
     <li class="navLi">Привет, {{userName}}</li>
@@ -32,11 +31,11 @@
           <h4 class="h4-black">Вход</h4>
           <form name="auth" class="formDiv">
             <div class="inputDiv">
-              <label for="inputEmailAuth" class="label">Почта</label>
+              <label for="inputEmailAuth" class="form-label">Почта</label>
               <input name="emailAuth" type="email" class="input" placeholder="example@example.com" id="inputEmailAuth">
             </div>
             <div class="inputDiv">
-              <label for="inputPasswordAuth" class="label">Пароль</label>
+              <label for="inputPasswordAuth" class="form-label">Пароль</label>
               <input name="passwordAuth" type="password" class="input" placeholder="********" id="inputPasswordAuth">
             </div>
             <button type="submit" class="mainBtn">Войти</button>
@@ -62,18 +61,18 @@
           <form name="registr" class="formDiv">
             
             <div class="inputDiv">
-              <label for="inputNameRegistr" class="label">Имя</label>
+              <label for="inputNameRegistr" class="form-label">Имя</label>
               <input name="inputNameRegistr" type="text" class="input" placeholder="John Snow" id="inputNameRegistr">
             </div>
             
             <div class="inputDiv">
-              <label for="inputEmailRegistr" class="label">Почта</label>
+              <label for="inputEmailRegistr" class="form-label">Почта</label>
               <input name="emailRegistr" type="email" class="input" placeholder="example@example.com"
                 id="exampleEmailRegistr">
             </div>
             
             <div class="inputDiv">
-              <label for="inputPasswordRegistr" class="label">Пароль</label>
+              <label for="inputPasswordRegistr" class="form-label">Пароль</label>
               <input name="passwordRegistr" type="password" class="input" placeholder="********"
                 id="inputPasswordRegistr">
             </div>
