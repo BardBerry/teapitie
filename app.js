@@ -44,6 +44,7 @@ app.use(session(sessionConfig));
 
 app.use((req, res, next) => {
   app.locals.userName = req.session?.name;
+  app.locals.admin = req.session?.admin;
   next();
 });
 

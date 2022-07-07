@@ -4,22 +4,25 @@ form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const allForms = Object.fromEntries(new FormData(form));
   const inputs = Object.values(allForms);
-  if (inputs)
-  console.log(allForms);
-  const response = await fetch('http://localhost:3000/registr', {
-    method: 'post',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(allForms),
-  });
-  if (response.ok) {
-    const data = await response.json();
-    if (data === 'no') alert('пользователь с таким именем уже существует');
-    else if (data === 'no2') alert('пользователь с такой почтой уже зарегистрирован');
-    else window.location.replace('/');
+  if (!inputs.includes('')) {
+    console.log(allForms);
+    const response = await fetch('http://localhost:3000/registr', {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(allForms),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      if (data === 'no') alert('пользователь с таким именем уже существует');
+      else if (data === 'no2') alert('пользователь с такой почтой уже зарегистрирован');
+      else window.location.replace('/');
+    } else {
+      alert('что-то пошло не так :(');
+    }
   } else {
-    alert('что-то пошло не так :(');
+    return alert('пустой ввод')
   }
 });
 
@@ -49,7 +52,6 @@ const Logout = document.getElementById('logout');
 Logout?.addEventListener('click', async (e) => {
   e.preventDefault();
   const allForms = Object.fromEntries(new FormData(formAuth));
-  console.log('ok');
   const response = await fetch('http://localhost:3000/logout', {
     method: 'post',
     headers: {
