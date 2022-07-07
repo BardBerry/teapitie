@@ -1,58 +1,60 @@
 <div class="main-2">
 
-    <div class="mainTeaImgDiv">
-        <img class="mainTeaImg" src="{{tea.img}}" alt="main tea image">
+  <div class="mainTeaImgDiv">
+    <img class="mainTeaImg" src="{{tea.img}}" alt="main tea image">
+  </div>
+
+  <div class="teaContent">
+    <div class="headline-1">
+      <h1 class="h1-card">{{tea.title}}</h1>
+      <h5 class="h5-tea">Тип чая</h5>
+      <div class="line"></div>
+      <h5>Описание и заваривание</h5>
+      <span class="description">{{tea.description}}</span>
+      <h5>Комментарии</h5>
+      <div class="line"></div>
     </div>
 
-    <div class="teaContent">
-        <div class="headline-1">
-            <h1 class="h1-card">{{tea.title}}</h1>
-            <h5 class="h5-tea">Тип чая</h5>
-            <div class="line"></div>
-            <h5>Описание и заваривание</h5>
-            <span class="description">{{tea.description}}</span>
-        <h5>Комментарии</h5>
-        <div class="line"></div>
+    <ul class="comments">
+      {{#each tea.Comments}}
+      <li class="comment">
+        <div class="comment-header">
+          <h6>{{this.User.name}}</h6>
+          <img class="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
         </div>
-        
-        <ul class="comments">
-        {{#each tea.Comments}}
-            <li class="comment">
-                <div class="comment-header">
-                <h6>{{this.User.name}}</h6>
-                <img class="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
-                </div>
-                <span class="description">{{this.post}}</span>
-            </li>
-        {{/each}}
-        </ul>
-      
-        <div class="comment-footer">
-            <button id="addComment" type="button" class="secondBtn" data-bs-toggle="modal" data-bs-target="#addComent">Добавить комментарий</button>
-        </div>
-        
+        <span class="description">{{this.post}}</span>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="comment-footer">
+      <button id="addComment" type="button" class="secondBtn" data-bs-toggle="modal"
+        data-bs-target="#addComent">Добавить комментарий</button>
     </div>
+
+  </div>
 </div>
 
 
 <!-- Modal add comments -->
 
 <div class="modal fade" id="addComent" tabindex="-1" aria-labelledby="modalAddComents" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="main">
-    <div class="boxAuth">
-    <div class="btnClose">
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="main">
+        <div class="boxAuth">
+          <div class="btnClose">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <h4 class="h4-black">Оставить комментарий</h4>
+          <form data-id id="teaid" name="addComents" class="formDiv" method="post" action="/lk">
+            <textarea type="text" class="input-text" name="post" tabindex="2"
+              placeholder="Напищите свое мнение о чае, нам очень интересно"></textarea>
+            <button type="submit" class="mainBtn-2">Добавить</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <h4 class="h4-black">Оставить комментарий</h4>
-    <form name="addComents" class="formDiv" method="post" action="/lk">
-        <textarea type="text" class="input-text" name="post" tabindex="2" placeholder="Напищите свое мнение о чае, нам очень интересно" ></textarea>         
-        <button type="submit" class="mainBtn-2">Добавить</button>
-    </form>
-    </div>
-    </div>
-</div>
-</div>
+  </div>
 </div>
 </div>

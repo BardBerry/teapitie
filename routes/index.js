@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const router = require('express').Router();
 const { Comment } = require('../db/models');
 
@@ -7,10 +8,11 @@ router
     res.render('teaview');
   })
   .post(async (req, res) => {
+    console.log(req.body);
+    const { post } = req.body;
+    const user_id = req.session.userId;
+    const addpost = Comment.create({ post: post.myform, user_id, tea_id: post.id });
     try {
-      const { post } = req.body;
-      const user_id = req.session.userId;
-      const addpost = Comment.create({ post: post.myform, user_id, tea_id: post.id });
       await post.save();
       res.json(post);
     } catch (err) {
