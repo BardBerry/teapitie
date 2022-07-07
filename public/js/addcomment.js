@@ -13,6 +13,7 @@ formcom?.addEventListener('submit', async (e) => {
     body: JSON.stringify({ myform, id }),
   });
   if (response.ok) {
+    
     window.location.replace('/');
   } else {
     console.log('ERROR');
