@@ -19,6 +19,7 @@ router.post('/', async (req, res) => {
       defaults: {
         email: emailRegistr,
         password: hasedPass,
+        admin: true,
       },
     });
     if (!created) {
@@ -27,6 +28,7 @@ router.post('/', async (req, res) => {
     req.session.name = currUser.name;
     req.session.email = currUser.email;
     req.session.userId = currUser.id;
+    req.session.admin = currUser.admin;
 
     return res.json('ok');
   } catch (error) {
