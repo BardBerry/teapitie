@@ -10,7 +10,7 @@
   {{/if}}
   <ul class="navPart">
     {{#if userName}}
-    <li class="navLi">Привет {{userName}}</li>
+    <li class="navLi">Привет, {{userName}}</li>
     <li class="navLi"><button id="logout" class="secondBtn">Выйти</button></li>
     {{else}}
     <li class="navLi"><button type="button" class="txtBtn" data-bs-toggle="modal" data-bs-target="#modalAuth">Войти</button></li>
@@ -60,20 +60,24 @@
           </div>
           <h4 class="h4-black">Регистрация</h4>
           <form name="registr" class="formDiv">
+            
             <div class="inputDiv">
               <label for="inputNameRegistr" class="label">Имя</label>
               <input name="inputNameRegistr" type="text" class="input" placeholder="John Snow" id="inputNameRegistr">
             </div>
+            
             <div class="inputDiv">
               <label for="inputEmailRegistr" class="label">Почта</label>
               <input name="emailRegistr" type="email" class="input" placeholder="example@example.com"
                 id="exampleEmailRegistr">
             </div>
+            
             <div class="inputDiv">
               <label for="inputPasswordRegistr" class="label">Пароль</label>
               <input name="passwordRegistr" type="password" class="input" placeholder="********"
                 id="inputPasswordRegistr">
             </div>
+            
             <button type="submit" class="mainBtn">Зарегестрироваться</button>
           </form>
           <span class="textSpan">Уже есть акаунт? Тогда <button type="button" class="txtBtn-2" data-bs-toggle="modal"
