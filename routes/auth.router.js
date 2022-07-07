@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
         req.session.name = user.name;
         req.session.email = user.email;
         req.session.userId = user.id;
+        req.session.admin = user.admin;
 
         return res.json('200');
       } return res.json('400');

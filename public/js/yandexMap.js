@@ -3,7 +3,7 @@ async function getCoordinates(locationName) {
     const location = await ymaps.geocode(locationName);
     return location.geoObjects.get(0).geometry.getCoordinates();
   } catch (error) {
-    return alert('error');
+    return null;
   }
 }
 
@@ -13,13 +13,13 @@ async function init() {
     zoom: 4,
   });
 
-  ymaps.borders.load('001', {
-    lang: 'ru',
-    quality: 0,
-  }).then((RU) => {
-    const regions = ymaps.geoQuery(RU);
-    regions.addToMap(myMap);
-  });
+  // ymaps.borders.load('001', {
+  //   lang: 'ru',
+  //   quality: 0,
+  // }).then((RU) => {
+  //   const regions = ymaps.geoQuery(RU);
+  //   regions.addToMap(myMap);
+  // });
 
   // async function createPlacemark(locationName, teaName) {
   // const coordinates = await getCoordinates(locationName);
@@ -37,14 +37,16 @@ async function init() {
   async function createPlacemark(latitude, longitude, teaName, locationName) {
     if (latitude === null) {
       const coordinates = await getCoordinates(locationName);
-      const placemark = new ymaps.Placemark([coordinates[0], coordinates[1]], {
-        iconContent: `${teaName}`,
-        hintContent: `${locationName}`,
-        draggable: true,
-      }, {
-        preset: 'islands#oliveStretchyIcon',
-      });
-      myMap.geoObjects.add(placemark);
+      if (coordinates) {
+        const placemark = new ymaps.Placemark([coordinates[0], coordinates[1]], {
+          iconContent: `${teaName}`,
+          hintContent: `${locationName}`,
+          draggable: true,
+        }, {
+          preset: 'islands#oliveStretchyIcon',
+        });
+        myMap.geoObjects.add(placemark);
+      }
     } else {
       const placemark = new ymaps.Placemark([latitude, longitude], {
         iconContent: `${teaName}`,
@@ -78,7 +80,9 @@ async function init() {
       const coordinates = target.geometry._coordinates;
       console.log(target.geometry._coordinates);
 
-      window.location = `http://localhost:3000/teapitie/${coordinates[0]}/${coordinates[1]}`;
+      // const response = await fetch(`http://localhost:3000/teapitie/${coordinates[0]}/${coordinates[1]}`);
+
+      window.location.replace(`http://localhost:3000/teapitie/${coordinates[0]}/${coordinates[1]}`);
 
       // const response = await fetch(`/tea/${coordinates[0]}/${coordinates[1]}`);
       // if (response.ok) {
