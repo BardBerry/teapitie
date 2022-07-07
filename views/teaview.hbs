@@ -1,0 +1,74 @@
+<div style="display:block">{{tea.title}}</div>
+<div style="display:flex;justify-content:space-around;" class="container">
+
+  <div style="">
+    <div>
+      <img src=" {{Tea.img}}" alt="https://img.gazeta.ru/files3/328/14824328/black-tea-with-dry-tea-teapot-wooden-surface-pic_32ratio_900x600-900x600-97357.jpg">
+    </div>
+    <div>
+      {{Tea.description}}ОПИСАНИЕ
+    </div>
+  </div>
+  <div>
+    {{tea.description}}
+  </div>
+</div>
+<div style="">
+  <ul>
+    {{#each tea.Comments}}
+    <li class="">
+      <a href=" /teas/{{id}}" class="">{{this.post}}</a>
+      <span style="display:block" class="">Written by: {{this.User.name}}</span>
+    </li>
+    {{/each}}
+  </ul>
+
+
+  {{!-- {{#if useName}} --}}
+
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Добавить комментарий
+  </button>
+  {{!-- {{else}} --}}
+  <div style="color:red"> Авторизуйтесь, чтобы добавить комментарий</div>
+  {{!-- {{/if}} --}}
+</div>
+</div>
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Моё мнение</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form data-id name="addcomment" method="post" id="teaid" action="/tea">
+          <div class="mb-3">
+            <label for="body-textarea" class="block mar-b-1">Коммент:</label>
+            <textarea id="body-textarea" name="post" tabindex="2" class="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"></textarea>
+            <div class="form-text">Здесь вы можете написать всё, что почувствовали, попробовав этот чай.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
+    </form>
+  </div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,82 @@
+<div class="container">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Добавить чай
+    </button>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<div style="display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #34495e;">
+    <div class="cards">
+        <div class="card">
+            <h2 class="card-title">Seal</h2>
+            <img src="https://p4.wallpaperbetter.com/wallpaper/319/275/787/tea-plantation-wallpaper-preview.jpg" alt="">
+            <p class="card-desc">{{Tea.discription}}Pinnipeds, commonly known as seals,[a] are a widely distributed and
+                diverse clade of
+                carnivorous, fin-footed, semiaquatic marine mammals. They comprise the extant families Odobenidae (whose
+                only living member is the walrus), Otariidae (the eared seals: sea lions and fur seals), and Phocidae
+                (the
+                earless seals, or true seals).</p>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h2 class="card-title">Seal</h2>
+            <img src="https://p4.wallpaperbetter.com/wallpaper/319/275/787/tea-plantation-wallpaper-preview.jpg" alt="">
+            <p class="card-desc">{{Tea.discription}}Pinnipeds, commonly known as seals,[a] are a widely distributed and
+                diverse clade of
+                carnivorous, fin-footed, semiaquatic marine mammals. They comprise the extant families Odobenidae (whose
+                only living member is the walrus), Otariidae (the eared seals: sea lions and fur seals), and Phocidae
+                (the
+                earless seals, or true seals).</p>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h2 class="card-title">Seal</h2>
+            <img src="https://p4.wallpaperbetter.com/wallpaper/319/275/787/tea-plantation-wallpaper-preview.jpg" alt="">
+            <p class="card-desc">{{Tea.discription}}Pinnipeds, commonly known as seals,[a] are a widely distributed and
+                diverse clade of
+                carnivorous, fin-footed, semiaquatic marine mammals. They comprise the extant families Odobenidae (whose
+                only living member is the walrus), Otariidae (the eared seals: sea lions and fur seals), and Phocidae
+                (the
+                earless seals, or true seals).</p>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Добавление чая</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/tea" name="addTea">
+                    <div class="mb-3">
+                        <label for="sortoftea" class="form-label">Название сорта чая</label>
+                        <input name="title" type="text" class="form-control" id="sortoftea">
+                    </div>
+                    <div class="mb-3">
+                        <label for="describe" class="form-label">Описние</label>
+                        <input name="description" type="text" class="form-control" id="describe">
+                    </div>
+                    <div class="mb-3">
+                        <label for="born" class="form-label">Где выращивают</label>
+                        <input name="location" type="text" class="form-control" id="born">
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Ссылка на картинку</label>
+                        <input name="img" type="text" class="form-control" id="img">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
