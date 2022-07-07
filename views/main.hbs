@@ -8,9 +8,10 @@
         <h1>Место, где люди и чай находят друг друга </h1>
         <h4 class="h4-light">Выбирайте любимые чаи и делитесь комментариями</h4>
       </div>
-
+    {{#if userName}}
+    {{else}} 
       <button class="mainBtn" data-bs-toggle="modal" data-bs-target="#modalRegistr">Зарегестрироваться</button>
-
+    {{/if}} 
     </div>
   </div>
   <div id="map"></div>
