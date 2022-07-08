@@ -95,12 +95,12 @@ formTea?.addEventListener('submit', async (e) => {
         body: JSON.stringify(allform),
       });
       if (response.ok) {
-        // const titleTea = document.querySelector('#tittleTea');
-        // const descTea = document.querySelector('#descTea');
-        // // const locationTea = document.querySelector('#locationTea');
-        // const imgTea = document.querySelector('#imgTea');
-        // const container = document.querySelector('[data-container]');
-        // container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
+        const titleTea = document.querySelector('#tittleTea');
+        const descTea = document.querySelector('#descTea');
+        // const locationTea = document.querySelector('#locationTea');
+        const imgTea = document.querySelector('#imgTea');
+        const container = document.querySelector('[data-container]');
+        container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
         window.location.replace('/lk');
       } else {
         console.log('ERROR');
