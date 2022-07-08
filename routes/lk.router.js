@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Tea, User, Comment } = require('../db/models');
+const adminCheck = require('../middlewares/adminCheck');
 
 router
   .route('/')
@@ -44,7 +45,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
-router.delete('/tea/:id', async (req, res) => {
+router.delete('/tea/:id', adminCheck, async (req, res) => {
   try {
     // console.log(await Tea.findOne({ where: { id: req.params.id } }));
     console.log('ya tut');
@@ -56,7 +57,7 @@ router.delete('/tea/:id', async (req, res) => {
 });
 
 // Роутер для удаления комментариев
-router.delete('/comment/:id', async (req, res) => {
+router.delete('/comment/:id', adminCheck, async (req, res) => {
   try {
     await Comment.destroy({ where: { id: req.params.id } });
     return res.sendStatus(200);
