@@ -8,14 +8,6 @@ router
     res.render('teaview');
   })
   .post(async (req, res) => {
-    console.log(req.body);
-    const { opinion } = req.body;
-    const user_id = req.session.userId;
-    const addpost = await Comment.create({
-      post: opinion.myform.post,
-      user_id,
-      tea_id: opinion.id,
-    });
     try {
       const { post } = req.body.myform;
       const { id } = req.body;

@@ -27,12 +27,12 @@ formcom?.addEventListener('submit', async (e) => {
     body: JSON.stringify({ myform, id }),
   });
   if (response.ok) {
-    const data = await response.json();
-    const opinion = document.querySelector('#opinion');
-    const container = document.querySelector('[data-containerCom]');
-    container.insertAdjacentHTML('afterbegin', createPartHTMLcomment(data, opinion));
+    // const data = await response.json();
+    // const opinion = document.querySelector('#opinion');
+    // const container = document.querySelector('[data-containerCom]');
+    // container.insertAdjacentHTML('afterbegin', createPartHTMLcomment(data, opinion));
 
-    window.location.replace('/teapitie');
+    window.location.reload();
   } else {
     console.log('ERROR');
   }
