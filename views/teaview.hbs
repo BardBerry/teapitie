@@ -23,16 +23,19 @@
             <li data-commentid="{{this.id}}" class="comment">
                 <div class="comment-header">
                 <h6>{{this.User.name}}</h6>
+                {{#if admin}}
                 <img id="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
+                {{/if}}
                 </div>
                 <span class="description">{{this.post}}</span>
             </li>
         {{/each}}
         </ul>
-      
+        {{#if userName}}
         <div class="comment-footer">
             <button id="addComment" type="button" class="secondBtn" data-bs-toggle="modal" data-bs-target="#addComent">Добавить комментарий</button>
         </div>
+        {{/if}}
         
     </div>
 </div>

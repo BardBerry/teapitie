@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
       defaults: {
         email: emailRegistr,
         password: hasedPass,
-        admin: true,
+        admin: false,
       },
     });
     if (!created) {

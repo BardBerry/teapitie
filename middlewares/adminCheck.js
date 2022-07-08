@@ -1,5 +1,5 @@
 function adminCheck(req, res, next) {
-  if (req.session?.username !== 'admin') {
+  if (req.session?.admin !== true) {
     res.redirect('/');
   } else {
     next();
