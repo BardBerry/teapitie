@@ -94,10 +94,10 @@ formTea?.addEventListener('submit', async (e) => {
         body: JSON.stringify(allform),
       });
       if (response.ok) {
-        // const titleTea = document.querySelector('#tittleTea');
-        // const descTea = document.querySelector('#descTea');
+        // const titleTea = document.querySelector('#sortoftea');
+        // const descTea = document.querySelector('#describe');
         // // const locationTea = document.querySelector('#locationTea');
-        // const imgTea = document.querySelector('#imgTea');
+        // const imgTea = document.querySelector('#img');
         // const container = document.querySelector('[data-container]');
         // container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
         window.location.reload();
