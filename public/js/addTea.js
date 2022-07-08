@@ -138,15 +138,15 @@ comentList.addEventListener('click', async (e) => {
     const closestLi = e.target.closest('li');
     const commentId = closestLi.dataset.commentid;
 
-    const response = await fetch(`/comment/${commentId}`, {
+    const response = await fetch(`/lk/comment/${commentId}`, {
       method: 'delete',
       headers: { 'Content-type': 'application/json' },
     });
-    console.log(response);
-    // if (response.ok) {
-    //   closestLi.remove();
-    // } else {
-    //   console.log('Response delete error');
-    // }
+
+    if (response.ok) {
+      closestLi.remove();
+    } else {
+      console.log('Response delete error');
+    }
   }
 });
