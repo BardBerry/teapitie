@@ -10,7 +10,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'sima',
+        name: 'Сима',
         email: 'sima@yandex.ru',
         password: '123',
         admin: false,
@@ -18,7 +18,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'basan',
+        name: 'Басан',
         email: 'basan@yandex.ru',
         password: '123',
         admin: false,
@@ -26,7 +26,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'nikita',
+        name: 'Никита',
         email: 'nikita@yandex.ru',
         password: '123',
         admin: false,
