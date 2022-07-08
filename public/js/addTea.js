@@ -62,7 +62,6 @@ async function init() {
   });
 }
 
-
 function createPartHTML(titleTea, descTea, imgTea) {
   return `<li data-teaId="" class="card">
       <h2 class="card-title">${titleTea}</h2>
@@ -95,13 +94,13 @@ formTea?.addEventListener('submit', async (e) => {
         body: JSON.stringify(allform),
       });
       if (response.ok) {
-        const titleTea = document.querySelector('#tittleTea');
-        const descTea = document.querySelector('#descTea');
-        // const locationTea = document.querySelector('#locationTea');
-        const imgTea = document.querySelector('#imgTea');
-        const container = document.querySelector('[data-container]');
-        container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
-        window.location.replace('/lk');
+        // const titleTea = document.querySelector('#sortoftea');
+        // const descTea = document.querySelector('#describe');
+        // // const locationTea = document.querySelector('#locationTea');
+        // const imgTea = document.querySelector('#img');
+        // const container = document.querySelector('[data-container]');
+        // container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
+        window.location.reload();
       } else {
         console.log('ERROR');
       }
