@@ -1,10 +1,15 @@
 const router = require('express').Router();
-const { Tea } = require('../db/models');
+const { Tea, User, Comment } = require('../db/models');
 
 router
   .route('/')
-  .get((req, res) => {
-    res.render('adminlk');
+  .get(async (req, res) => {
+    const response = await fetch('http://localhost:3000/lk/all');
+    if (response.ok) {
+      const { data, comment } = await response.json();
+      console.log({ comment });
+      return res.render('adminlk', { data, comment });
+    }
   })
 
   .post((req, res) => {
@@ -18,5 +23,19 @@ router
     });
     res.sendStatus(200);
   });
+
+router.get('/all', async (req, res) => {
+  try {
+    const data = await Tea.findAll();
+    const comment = await Comment.findAll({
+      include: {
+        model: User,
+      },
+    });
+    res.json({ data, comment });
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
 
 module.exports = router;

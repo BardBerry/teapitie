@@ -1,60 +1,59 @@
+<script defer src="./js/addTea.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=280b2979-6b8d-4af4-aa1d-5df8ed0eac60&lang=ru_RU" type="text/javascript"></script>
+
 <div class="main-2">
-    <!-- Левая часть — каталог чаев -->
-    <div class="lk-tea">
-        <div class="headline-2">
-            <div>
-                <h5>Каталог чаев</h5>
-                <div class="line"></div>
-            </div>
-            <button type="button" class="mainBtn" data-bs-toggle="modal" data-bs-target="#addTea">
-        Добавить чай </button>
-        </div>
-
-        <!-- Список чаев -->
-        <ul class="tea-list">
-           
-            <li data-teaId="" class="card">
-                <h2 class="card-title">fin-footed, semiaquatic marine mammals.</h2>
-                
-                <img src="https://p4.wallpaperbetter.com/wallpaper/319/275/787/tea-plantation-wallpaper-preview.jpg" alt="">
-                <div class="card-desc">{{tea.discription}} 
-                <!-- Блок с кнопками> -->
-                <div class="card-icon">
-                    <img id="btnSettingTea" src="/img/settings_3_line.svg" alt="edit tea">
-                    <img id="btnDeleteTea" src="/img/delete_2_line.svg" alt="delete tea">
-                </div>
-                    <p>
-                    Pinnipeds, commonly known as seals,[a] are a widely distributed and
-                    diverse clade of carnivorous, fin-footed, semiaquatic marine mammals. They comprise the extant families Odobenidae whose
-                    only living member is the walrus, Otariidae the eared seals: sea lions and fur seals, and Phocidae
-                    the earless seals, or true seals.</p> 
-                </div>
-            </li>
-            
-        </ul>
-    </div>
-
-    <!-- Правая часть — список отзывов -->
-    <div class="lk-coment">
-        <div id="lk-header" class="headline-1">
-        <h5>Последние комментарии</h5>
+  <!-- Левая часть — каталог чаев -->
+  <div class="lk-tea">
+    <div class="headline-2">
+      <div>
+        <h5>Каталог чаев</h5>
         <div class="line"></div>
-        </div>
-
-        <!-- Список отзывов -->
-         <ul class="lk-commentList">
-        
-        <li class="comment">
-                <div class="comment-header">
-                <h6>Имя комментатора</h6>
-                <img class="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
-                </div>
-                <span class="description">Я занимаюсь вёрсткой и программированием сайтов. Почти в каждом макете, который я верстал, были модальные окна. Обычно это формы заказа звонка в лендингах, уведомления о завершении каких-то процессов, или сообщения об ошибках.
-Вёрстка таких окон сначала кажется простой задачей.</span>
-            </li>
-            
-        </ul>
+      </div>
+      <button type="button" class="mainBtn" data-bs-toggle="modal" data-bs-target="#addTea">
+        Добавить чай </button>
     </div>
+
+    <!-- Список чаев -->
+    <ul class="tea-list">
+      {{#each data}}
+      <li data-teaId="" class="card">
+        <h2 class="card-title">{{this.title}}</h2>
+
+        <img src="https://www.nippon.com/en/ncommon/contents/japan-data/85340/85340.jpg" alt="{{this.title}}">
+        <div class="card-desc">
+          <!-- Блок с кнопками> -->
+          <div class="card-icon">
+            <img id="btnSettingTea" src="/img/settings_3_line.svg" alt="edit tea">
+            <img id="btnDeleteTea" src="/img/delete_2_line.svg" alt="delete tea">
+          </div>
+          <p>
+            {{this.description}}</p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- Правая часть — список отзывов -->
+  <div class="lk-coment">
+    <div id="lk-header" class="headline-1">
+      <h5>Последние комментарии</h5>
+      <div class="line"></div>
+    </div>
+
+    <!-- Список отзывов -->
+    <ul class="lk-commentList">
+      {{#each comment}}
+      <li class="comment">
+        <div class="comment-header">
+          <h6>{{this.User.name}}</h6>
+          <img class="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
+        </div>
+        <span class="description">{{this.post}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>
 
 <!-- Modal Add tea -->
@@ -70,20 +69,20 @@
           <h4 class="h4-black">Добавить чай</h4>
           <form name="addTea" class="formDiv">
             <div class="inputDiv">
-                <label for="sortoftea" class="form-label">Сорт чая</label>
-                <input placeholder="Например, Да Хун Пао" name="title" type="text" class="input" id="sortoftea">
+              <label for="sortoftea" class="form-label">Сорт чая</label>
+              <input placeholder="Например, Да Хун Пао" name="title" type="text" class="input" id="sortoftea">
             </div>
             <div class="inputDiv">
-                <label for="describe" class="form-label">Описние и заваривание</label>
-                <textarea id="describe" type="text" class="input-text" name="description" placeholder="Опишите вкус чая и способ приготовления" ></textarea>
+              <label for="describe" class="form-label">Описание и заваривание</label>
+              <textarea id="describe" type="text" class="input-text" name="description" placeholder="Опишите вкус чая и способ приготовления"></textarea>
             </div>
-             <div class="inputDiv">
-                <label for="born" class="form-label">Где выращивают</label>
-                <input name="location" type="text" class="input" id="born" placeholder="Например, Фудзиань">
+            <div class="inputDiv">
+              <label for="born" class="form-label">Где выращивают</label>
+              <input name="location" type="text" class="input" id="born" placeholder="Например, Фудзиань">
             </div>
-             <div class="inputDiv">
-                <label for="img" class="form-label">Ссылка на изображение</label>
-                <input name="img" type="text" class="input" id="img">
+            <div class="inputDiv">
+              <label for="img" class="form-label">Ссылка на изображение</label>
+              <input name="img" type="text" class="input" id="img">
             </div>
             <button type="submit" class="mainBtn">Добавить</button>
           </form>
