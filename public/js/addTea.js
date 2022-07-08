@@ -128,7 +128,7 @@ teaList.addEventListener('click', async (e) => {
       alert('что-то пошло не так');
     }
   }
-}
+});
 // Удаление комментариев
 
 const comentList = document.querySelector('.lk-commentList');
