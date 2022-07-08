@@ -62,17 +62,20 @@ async function init() {
   });
 }
 
-// function createPartHTML(titleTea, descTea, imgTea) {
-//   return `
-//   <div class="cards">
-//   <div class="card">
-//       <h2 class="card-title">${titleTea}</h2>
-//       <img src="${imgTea}" alt="">
-//       <p class="card-desc">${descTea}</p>
-//   </div>
-// </div>
-//   `;
-// }
+
+function createPartHTML(titleTea, descTea, imgTea) {
+  return `<li data-teaId="" class="card">
+      <h2 class="card-title">${titleTea}</h2>
+      <img src="${imgTea}" alt="${titleTea}">
+      <div class="card-desc">
+        <div class="card-icon">
+          <img id="btnSettingTea" src="/img/settings_3_line.svg" alt="edit tea">
+          <img id="btnDeleteTea" src="/img/delete_2_line.svg" alt="delete tea">
+      </div>
+        <p class="p-card">${descTea}</p>
+      </div>
+    </li>`;
+}
 
 formTea?.addEventListener('submit', async (e) => {
   e.preventDefault();
