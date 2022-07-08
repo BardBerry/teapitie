@@ -91,7 +91,7 @@ formTea?.addEventListener('submit', async (e) => {
         headers: {
           'Content-type': 'application/json',
         },
-        body: JSON.stringify(allform),
+        body: JSON.stringify({ allform, coords }),
       });
       if (response.ok) {
         // const titleTea = document.querySelector('#sortoftea');

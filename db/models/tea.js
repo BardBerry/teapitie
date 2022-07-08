@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Comment, {
+        onDelete: 'CASCADE',
         foreignKey: 'tea_id',
       });
     }

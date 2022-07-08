@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Tea, {
+        onDelete: 'CASCADE',
         foreignKey: 'tea_id',
       });
       this.belongsTo(models.User, {
+        onDelete: 'CASCADE',
         foreignKey: 'user_id',
       });
     }

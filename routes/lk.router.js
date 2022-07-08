@@ -20,10 +20,12 @@ router
   .post((req, res) => {
     const {
       title, description, location, img,
-    } = req.body;
+    } = req.body.allform;
+    const { coords } = req.body;
+    // console.log(coords, description);
     const addTea = Tea.create({
       // eslint-disable-next-line max-len
-      title, description, location, img, latitude: null, longitude: null, createdAt: new Date(), updatedAt: new Date(),
+      title, description, location, img, latitude: coords[0], longitude: coords[1], createdAt: new Date(), updatedAt: new Date(),
     });
     res.sendStatus(200);
   });
@@ -44,7 +46,8 @@ router.get('/all', async (req, res) => {
 
 router.delete('/tea/:id', async (req, res) => {
   try {
-    console.log(await Tea.findOne({ where: { id: req.params.id } }));
+    // console.log(await Tea.findOne({ where: { id: req.params.id } }));
+    console.log('ya tut');
     await Tea.destroy({ where: { id: req.params.id } });
     return res.sendStatus(200);
   } catch (error) {

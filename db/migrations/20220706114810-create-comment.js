@@ -16,6 +16,7 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       tea_id: {
         type: Sequelize.INTEGER,
@@ -23,6 +24,7 @@ module.exports = {
           model: 'Teas',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
