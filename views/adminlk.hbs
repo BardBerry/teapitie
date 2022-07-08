@@ -18,7 +18,7 @@
     <!-- Список чаев -->
     <ul class="tea-list">
       {{#each data}}
-      <li data-teaId="" class="card">
+      <li data-teaId="{{this.id}}" class="card">
         <h2 class="card-title">{{this.title}}</h2>
 
         <img src="{{this.img}}" alt="{{this.title}}">

@@ -44,6 +44,7 @@ router.get('/all', async (req, res) => {
 
 router.delete('/tea/:id', async (req, res) => {
   try {
+    console.log(await Tea.findOne({ where: { id: req.params.id } }));
     await Tea.destroy({ where: { id: req.params.id } });
     return res.sendStatus(200);
   } catch (error) {

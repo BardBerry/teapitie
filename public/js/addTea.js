@@ -62,7 +62,6 @@ async function init() {
   });
 }
 
-
 function createPartHTML(titleTea, descTea, imgTea) {
   return `<li data-teaId="" class="card">
       <h2 class="card-title">${titleTea}</h2>
@@ -101,12 +100,31 @@ formTea?.addEventListener('submit', async (e) => {
         // const imgTea = document.querySelector('#imgTea');
         // const container = document.querySelector('[data-container]');
         // container.insertAdjacentHTML('afterbegin', createPartHTML(titleTea, descTea, imgTea));
-        window.location.replace('/lk');
+        window.location.reload();
       } else {
         console.log('ERROR');
       }
     }
   } else {
     alert('пустой ввод');
+  }
+});
+
+const teaList = document.querySelector('.tea-list');
+teaList.addEventListener('click', async (e) => {
+  if (e.target.id === 'btnDeleteTea') {
+    const closestLi = e.target.closest('li');
+    const id = closestLi.dataset.teaid;
+    const response = await fetch(`/lk/tea/${id}`, {
+      method: 'delete',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    if (response.ok) {
+      window.location.replace('/lk');
+    } else {
+      alert('что-то пошло не так');
+    }
   }
 });
