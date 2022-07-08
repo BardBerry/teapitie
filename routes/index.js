@@ -9,11 +9,15 @@ router
   })
   .post(async (req, res) => {
     console.log(req.body);
-    const { post } = req.body;
+    const { opinion  = req.body;
     const user_id = req.session.userId;
-    const addpost = Comment.create({ post: post.myform, user_id, tea_id: post.id });
+    const addpost = await Comment.create({
+      post: opinion.myform.post,
+      user_id,
+      tea_id: opinion.id,
+    });
     try {
-      await post.save();
+      await opinion.save();
       res.json(post);
     } catch (err) {
       res.sendStatus(500);
