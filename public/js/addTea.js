@@ -92,7 +92,7 @@ formTea?.addEventListener('submit', async (e) => {
         headers: {
           'Content-type': 'application/json',
         },
-        body: JSON.stringify(allform),
+        body: JSON.stringify({ allform, coords }),
       });
       if (response.ok) {
         // const titleTea = document.querySelector('#sortoftea');
@@ -111,6 +111,24 @@ formTea?.addEventListener('submit', async (e) => {
   }
 });
 
+const teaList = document.querySelector('.tea-list');
+teaList.addEventListener('click', async (e) => {
+  if (e.target.id === 'btnDeleteTea') {
+    const closestLi = e.target.closest('li');
+    const id = closestLi.dataset.teaid;
+    const response = await fetch(`/lk/tea/${id}`, {
+      method: 'delete',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    if (response.ok) {
+      window.location.replace('/lk');
+    } else {
+      alert('что-то пошло не так');
+    }
+  }
+});
 // Удаление комментариев
 
 const comentList = document.querySelector('.lk-commentList');
@@ -124,7 +142,7 @@ comentList.addEventListener('click', async (e) => {
       method: 'delete',
       headers: { 'Content-type': 'application/json' },
     });
-console.log(response);
+    console.log(response);
     // if (response.ok) {
     //   closestLi.remove();
     // } else {
