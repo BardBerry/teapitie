@@ -38,12 +38,20 @@
 <!-- Modal add comments -->
 
 <div class="modal fade" id="addComent" tabindex="-1" aria-labelledby="modalAddComents" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="main">
-    <div class="boxAuth">
-    <div class="btnClose">
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="main">
+        <div class="boxAuth">
+          <div class="btnClose">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <h4 class="h4-black">Оставить комментарий</h4>
+          <form data-id={{tea.id}} name="addComents" class="formDiv" method="post" action="/lk" id="teaid">
+            <textarea type="text" class="input-text" name="post" tabindex="2" placeholder="Напищите свое мнение о чае, нам очень интересно"></textarea>
+            <button type="submit" class="mainBtn-2">Добавить</button>
+          </form>
+        </div>
+      </div>
     </div>
     <h4 class="h4-black">Оставить комментарий</h4>
     <form name="addComents" class="formDiv" method="post" action="/lk">
