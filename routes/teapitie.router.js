@@ -20,9 +20,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/teas', async (req, res) => {
-  const { latitude } = req.body;
-  const { longitude } = req.body;
+router.get('/:latitude/:longitude', async (req, res) => {
+  const { latitude } = req.params;
+  const { longitude } = req.params;
   try {
     const tea = await Tea.findOne({
       where: { [Op.and]: [{ latitude }, { longitude }] },
@@ -33,27 +33,10 @@ router.post('/teas', async (req, res) => {
         },
       },
     });
-    return res.json({ tea });
-  } catch (error) {
-    return res.json(error);
-  }
-});
-
-router.get('/:latitude/:longitude', async (req, res) => {
-  const response = await fetch('http://localhost:3000/teapitie/teas', {
-    method: 'post',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(req.params),
-  });
-
-  if (response.ok) {
-    const { tea } = await response.json();
     return res.render('teaview', { tea });
+  } catch (error) {
+    alert('что-то пошло не так');
   }
-  const error = await response.json();
-  alert(error);
 });
 
 module.exports = router;
