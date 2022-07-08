@@ -45,10 +45,10 @@
     <!-- Список отзывов -->
     <ul class="lk-commentList">
       {{#each comment}}
-      <li class="comment">
+      <li data-commentid="{{this.id}}" class="comment">
         <div class="comment-header">
           <h6>{{this.User.name}}</h6>
-          <img class="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
+          <img id="btnDeleteComment" src="/img/delete_2_line.svg" alt="delete comment">
         </div>
         <span class="description">{{this.post}}</span>
       </li>

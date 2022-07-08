@@ -1,5 +1,7 @@
 const formTea = document.forms.addTea;
 
+// Форма добавление чая на карту
+
 async function getCoordinates(locationName) {
   try {
     const location = await ymaps.geocode(locationName);
@@ -49,8 +51,6 @@ async function init() {
     });
   }
 
-  // createPlacemark(61.79, 34.36, 'франнцузский улун', 'москва');
-
   myMap.geoObjects.events.add('click', async (e) => {
     const target = e.get('target');
     if (target) {
@@ -62,6 +62,7 @@ async function init() {
   });
 }
 
+// Cоздание html карточки нового чая для добавления чая в базу
 function createPartHTML(titleTea, descTea, imgTea) {
   return `<li data-teaId="" class="card">
       <h2 class="card-title">${titleTea}</h2>
@@ -107,5 +108,27 @@ formTea?.addEventListener('submit', async (e) => {
     }
   } else {
     alert('пустой ввод');
+  }
+});
+
+// Удаление комментариев
+
+const comentList = document.querySelector('.lk-commentList');
+
+comentList.addEventListener('click', async (e) => {
+  if (e.target.id === 'btnDeleteComment') {
+    const closestLi = e.target.closest('li');
+    const commentId = closestLi.dataset.commentid;
+
+    const response = await fetch(`/comment/${commentId}`, {
+      method: 'delete',
+      headers: { 'Content-type': 'application/json' },
+    });
+console.log(response);
+    // if (response.ok) {
+    //   closestLi.remove();
+    // } else {
+    //   console.log('Response delete error');
+    // }
   }
 });
