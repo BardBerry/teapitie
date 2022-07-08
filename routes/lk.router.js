@@ -38,4 +38,22 @@ router.get('/all', async (req, res) => {
   }
 });
 
+router.delete('/tea/:id', async (req, res) => {
+  try {
+    await Tea.destroy({ where: { id: req.params.id } });
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.json({ error }).status(500);
+  }
+});
+
+router.delete('/comment/:id', async (req, res) => {
+  try {
+    await Comment.destroy({ where: { id: req.params.id } });
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.json({ error }).status(500);
+  }
+});
+
 module.exports = router;
