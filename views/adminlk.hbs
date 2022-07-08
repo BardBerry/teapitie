@@ -9,8 +9,10 @@
         <h5>Каталог чаев</h5>
         <div class="line"></div>
       </div>
+      {{!-- {{#if admin}} --}}
       <button type="button" class="mainBtn" data-bs-toggle="modal" data-bs-target="#addTea">
         Добавить чай </button>
+      {{!-- {{/if}} --}}
     </div>
 
     <!-- Список чаев -->
@@ -19,15 +21,14 @@
       <li data-teaId="" class="card">
         <h2 class="card-title">{{this.title}}</h2>
 
-        <img src="https://www.nippon.com/en/ncommon/contents/japan-data/85340/85340.jpg" alt="{{this.title}}">
+        <img src="{{this.img}}" alt="{{this.title}}">
         <div class="card-desc">
           <!-- Блок с кнопками> -->
           <div class="card-icon">
             <img id="btnSettingTea" src="/img/settings_3_line.svg" alt="edit tea">
             <img id="btnDeleteTea" src="/img/delete_2_line.svg" alt="delete tea">
-          </div>
-          <p>
-            {{this.description}}</p>
+        </div>
+        <p class="p-card">{{this.description}}</p>
         </div>
       </li>
       {{/each}}

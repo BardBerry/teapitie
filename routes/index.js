@@ -9,7 +9,7 @@ router
   })
   .post(async (req, res) => {
     console.log(req.body);
-    const { opinion  = req.body;
+    const { opinion } = req.body;
     const user_id = req.session.userId;
     const addpost = await Comment.create({
       post: opinion.myform.post,
@@ -17,14 +17,16 @@ router
       tea_id: opinion.id,
     });
     try {
-      await opinion.save();
-      res.json(post);
+      const { post } = req.body.myform;
+      const { id } = req.body;
+      const user_id = req.session.userId;
+      const addpost = await Comment.create({
+        post, user_id, tea_id: id, createdAt: new Date(), updatedAt: new Date(),
+      });
+      res.json(addpost);
     } catch (err) {
       res.sendStatus(500);
     }
   });
-
-// router
-//   .route('/')
 
 module.exports = router;
