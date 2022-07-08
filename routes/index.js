@@ -8,17 +8,16 @@ router
   })
   .post(async (req, res) => {
     try {
-      const { post } = req.body;
+      const { post } = req.body.myform;
+      const { id } = req.body;
       const user_id = req.session.userId;
-      const addpost = Comment.create({ post: post.myform, user_id, tea_id: post.id });
-      await post.save();
-      res.json(post);
+      const addpost = await Comment.create({
+        post, user_id, tea_id: id, createdAt: new Date(), updatedAt: new Date(),
+      });
+      res.json(addpost);
     } catch (err) {
       res.sendStatus(500);
     }
   });
-
-// router
-//   .route('/')
 
 module.exports = router;

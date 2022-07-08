@@ -7,7 +7,6 @@ router
     const response = await fetch('http://localhost:3000/lk/all');
     if (response.ok) {
       const { data, comment } = await response.json();
-      console.log({ comment });
       return res.render('adminlk', { data, comment });
     }
   })
@@ -16,7 +15,6 @@ router
     const {
       title, description, location, img,
     } = req.body;
-    // console.log(title);
     const addTea = Tea.create({
       // eslint-disable-next-line max-len
       title, description, location, img, latitude: null, longitude: null, createdAt: new Date(), updatedAt: new Date(),
