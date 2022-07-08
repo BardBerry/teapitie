@@ -267,59 +267,6 @@ h1{
   height: 700px;
 }
 
-/* Cards */
-.cards {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.card {
-  margin: 40px;
-  position: relative;
-  max-width: 250px;
-  max-height: 350px;
-  box-shadow: 0 40px 60px -6px black;
-}
-
-.card-title {
-  display: block;
-  text-align: center;
-  color: #fff;
-  background-color: #6184a8;
-  padding: 2%;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-}
-
-.card img {
-  width: 100%;
-  height: 98%;
-  object-fit: cover;
-  display: block;
-  position: relative;
-}
-
-.card-desc {
-  display: block;
-  font-size: 1.2rem;
-  position: absolute;
-  height: 0;
-  top: 0;
-  opacity: 0;
-  padding: 18px 8%;
-  background-color: white;
-  overflow-y: scroll;
-  transition: 0.8s ease;
-}
-
-.card:hover .card-desc {
-  opacity: 1;
-  height: 100%;
-}
-
-
 /* Auth */
 .modal-dialog{
   width: 440px;
@@ -474,6 +421,7 @@ h5{
   padding: 20px;
   border-radius: 20px;
   border: 1px solid rgb(190, 190, 190);
+  background-color: white;
 }
 
 /* Comments */
@@ -527,4 +475,124 @@ h6{
 
 #addComment{
   width: 220px;
+}
+
+
+/* LK */
+
+.lk-tea{
+  min-width: 60%;
+  max-height: 80vh;
+
+}
+
+.lk-coment{
+  width: 540px;
+  max-height: 80vh;
+  /* background-color: rgb(240, 240, 240); */
+}
+
+#lk-header{
+  padding: 0px 0px 0px 30px;
+}
+
+.lk-commentList{
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.headline-2{
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  height: auto;
+  margin: 0px 0px 20px 0px;
+  align-items: flex-end;
+}
+
+.tea-list{
+  max-height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  overflow-y: auto;
+}
+
+.card {
+  margin: 10px;
+  position: relative;
+  max-width: 260px;
+  height: 350px;
+}
+
+.card-title {
+  display: block;
+  text-align:left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size:12pt;
+  color: rgb(30, 30, 30);
+  background-color: #F3FCF7;
+  padding: 2% 5%;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.card img {
+  width: 100%;
+  height: 98%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.card-desc {
+  display: block;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 10pt;
+  position: absolute;
+  height: 0;
+  top: 0;
+  opacity: 0;
+  padding: 18px 8%;
+  background-color: white;
+  overflow-y: scroll;
+  transition: 0.4s ease;
+}
+
+.card:hover .card-desc {
+  opacity: 1;
+  height: 100%;
+}
+
+#btnSettingTea{
+  width: 24px;
+  height: 24px;
+}
+
+#btnSettingTea:hover{
+  content: url(/img/settings_3_fill.svg);
+}
+
+#btnDeleteTea{
+  width: 24px;
+  height: 24px;
+}
+
+#btnDeleteTea:hover{
+  content: url('/img/delete_2_fill.svg');
+}
+
+.card-icon{
+  display: flex;
+  justify-content: end;
+  position: absolute;
+    bottom: 0;
+    right: 0;
+    
+  
+  height: 34px;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #FFFFFF;
+ 
 }

@@ -2,12 +2,11 @@
   <a id="logo" href="/">
     <img id="logoImg" src="/img/logo.png" alt="teaList logo">
   </a>
-  {{#if admin}}
-  <ul class="navInside">
-    <li class="navLi">Список чая</li>
-    <li class="navLi">Комментарии</li>
-  </ul>
-  {{/if}}
+
+  <div class="navInside">
+    <a href="/lk"><button class="txtBtn">Личный кабинет</button></a>
+  </div>
+
   <ul class="navPart">
     {{#if userName}}
     <li class="navLi">Привет, {{userName}}</li>
@@ -34,17 +33,16 @@
           <h4 class="h4-black">Вход</h4>
           <form name="auth" class="formDiv">
             <div class="inputDiv">
-              <label for="inputEmailAuth" class="label">Почта</label>
+              <label for="inputEmailAuth" class="form-label">Почта</label>
               <input name="emailAuth" type="email" class="input" placeholder="example@example.com" id="inputEmailAuth">
             </div>
             <div class="inputDiv">
-              <label for="inputPasswordAuth" class="label">Пароль</label>
+              <label for="inputPasswordAuth" class="form-label">Пароль</label>
               <input name="passwordAuth" type="password" class="input" placeholder="********" id="inputPasswordAuth">
             </div>
             <button type="submit" class="mainBtn">Войти</button>
           </form>
-          <span class="textSpan">Нет аккаунта? <button class="txtBtn-2" data-bs-toggle="modal"
-              data-bs-target="#modalRegistr">Зарегестрируйтесь</button></span>
+          <span class="textSpan">Нет аккаунта? <button class="txtBtn-2" data-bs-toggle="modal" data-bs-target="#modalRegistr">Зарегестрируйтесь</button></span>
         </div>
       </div>
     </div>
@@ -64,26 +62,23 @@
           <form name="registr" class="formDiv">
 
             <div class="inputDiv">
-              <label for="inputNameRegistr" class="label">Имя</label>
+              <label for="inputNameRegistr" class="form-label">Имя</label>
               <input name="inputNameRegistr" type="text" class="input" placeholder="John Snow" id="inputNameRegistr">
             </div>
 
             <div class="inputDiv">
-              <label for="inputEmailRegistr" class="label">Почта</label>
-              <input name="emailRegistr" type="email" class="input" placeholder="example@example.com"
-                id="exampleEmailRegistr">
+              <label for="inputEmailRegistr" class="form-label">Почта</label>
+              <input name="emailRegistr" type="email" class="input" placeholder="example@example.com" id="exampleEmailRegistr">
             </div>
 
             <div class="inputDiv">
-              <label for="inputPasswordRegistr" class="label">Пароль</label>
-              <input name="passwordRegistr" type="password" class="input" placeholder="********"
-                id="inputPasswordRegistr">
+              <label for="inputPasswordRegistr" class="form-label">Пароль</label>
+              <input name="passwordRegistr" type="password" class="input" placeholder="********" id="inputPasswordRegistr">
             </div>
 
             <button type="submit" class="mainBtn">Зарегестрироваться</button>
           </form>
-          <span class="textSpan">Уже есть акаунт? Тогда <button type="button" class="txtBtn-2" data-bs-toggle="modal"
-              data-bs-target="#modalAuth">войдите</button></span>
+          <span class="textSpan">Уже есть акаунт? Тогда <button type="button" class="txtBtn-2" data-bs-toggle="modal" data-bs-target="#modalAuth">войдите</button></span>
         </div>
       </div>
     </div>
