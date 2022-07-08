@@ -55,6 +55,7 @@ router.delete('/tea/:id', async (req, res) => {
   }
 });
 
+// Роутер для удаления комментариев
 router.delete('/comment/:id', async (req, res) => {
   try {
     await Comment.destroy({ where: { id: req.params.id } });
